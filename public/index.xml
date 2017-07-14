@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Hugo website</title>
+    <link>/</link>
+    <description>Recent content on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iXperience</title>
+      <link>/2017/07/01/second-new-post-in-r-markdown/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/07/01/second-new-post-in-r-markdown/</guid>
+      <description>Howzit from Cape Town. I am learning about the Data Science with amazing people from around the world. Looking forward to explore this beautiful city
+head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4 ## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4 ## Datsun 710 22.</description>
+    </item>
+    
+    <item>
+      <title>Project Include Ecuador</title>
+      <link>/2017/06/01/first-new-post-in-plain-markdown/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/06/01/first-new-post-in-plain-markdown/</guid>
+      <description>I created the organization Project Include Ecuador, an extension to Project Include at the University of Toronto.
+Along with some computer science students from Ecuador, we hosted fun and interactive workshops in communities in Ecuador to spread computer science!
+This is our team Check out our video!
+&amp;lt;&amp;ndash; TODO:Add video&amp;ndash;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+  </channel>
+</rss>

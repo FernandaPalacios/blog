@@ -1,0 +1,19 @@
+---
+title: iXperience
+author: ~
+date: '2017-07-01'
+slug: second-new-post-in-r-markdown
+categories: []
+tags: []
+---
+
+Howzit from Cape Town.
+I am learning about the Data Science with amazing people from around the world.
+Looking forward to explore this beautiful city
+
+
+
+
+```{r setup}
+head(mtcars)
+```
