@@ -17,8 +17,9 @@
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/2017/07/01/second-new-post-in-r-markdown/</guid>
-      <description>Howzit from Cape Town. I am learning about the Data Science with amazing people from around the world. Looking forward to explore this beautiful city
-head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6 160 110 3.90 2.620 16.46 0 1 4 4 ## Mazda RX4 Wag 21.0 6 160 110 3.90 2.875 17.02 0 1 4 4 ## Datsun 710 22.</description>
+      <description>Howzit from Cape Town. I am blessed to have been at a vibrant city over the past month. I am exploring the world of Data Science with amazing mentors and classmates!
+This is a project I worked on. I used sentiment analysis to gain insight on the themes in three masterpieces of Sigmund Freud.
+And a ‘mundane’ evening at CT.</description>
     </item>
     
     <item>
@@ -29,8 +30,7 @@ head(mtcars) ## mpg cyl disp hp drat wt qsec vs am gear carb ## Mazda RX4 21.0 6
       <guid>/2017/06/01/first-new-post-in-plain-markdown/</guid>
       <description>I created the organization Project Include Ecuador, an extension to Project Include at the University of Toronto.
 Along with some computer science students from Ecuador, we hosted fun and interactive workshops in communities in Ecuador to spread computer science!
-This is our team Check out our video!
-&amp;lt;&amp;ndash; TODO:Add video&amp;ndash;&amp;gt;</description>
+This is our team </description>
     </item>
     
   </channel>
