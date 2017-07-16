@@ -1,0 +1,19 @@
+---
+title: iXperience
+author: ~
+date: '2017-07-01'
+slug: second-new-post-in-r-markdown
+categories: []
+tags: []
+---
+
+Howzit from Cape Town.
+I am blessed to have been at a vibrant city over the past month. I am exploring the world of Data Science with amazing mentors and classmates!
+
+This is a project I worked on. I used sentiment analysis to gain insight on the themes in three masterpieces of Sigmund Freud.
+
+<img src="/img/Freud.png" height="500", width = "800">
+
+And a 'mundane' evening at CT.
+
+<img src="/img/sunset.png" height="400", width = "500">

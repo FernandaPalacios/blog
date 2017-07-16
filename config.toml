@@ -1,40 +1,46 @@
-baseurl = "/"
-relativeurls = true
+baseurl = "http://example.org"
+title = "Dimension"
+theme = "dimension"
 languageCode = "en-us"
-title = "A Hugo website"
-theme = "hugo-lithium-theme"
-googleAnalytics = ""
-disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
-
-[permalinks]
-    post = "/:year/:month/:day/:slug/"
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-[[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/rstudio/blogdown"
-[[menu.main]]
-    name = "Twitter"
-    url = "https://twitter.com/rstudio"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+disableRSS = true
 
 [params]
-    description = "A website built through Hugo and blogdown."
+  title = "Dimension"
+  description = '<!--[-->Computer Science Student at the University of Toronto. Lover of creativity and awe. From Quito, Ecuador. <!--]-->'
+  logo = "fa-diamond"
+  copyright = "Untitled"
 
-    # options for highlight.js (version, additional languages, and theme)
-    highlightjsVersion = "9.11.0"
-    highlightjsCDN = "//cdn.bootcss.com"
-    highlightjsLang = ["r", "yaml"]
-    highlightjsTheme = "github"
+[[params.social]]
+  medium = "twitter"
+  icon = "twitter"
+  link = "#"
 
-    MathJaxCDN = "//cdn.bootcss.com"
-    MathJaxVersion = "2.7.1"
+[[params.social]]
+  medium = "facebook"
+  icon = "facebook"
+  link = "#"
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
+[[params.social]]
+  medium = "instagram"
+  icon = "instagram"
+  link = "#"
 
+[[params.social]]
+  medium = "github"
+  icon = "github"
+  link = "#"
+
+[languages]
+[languages.en]
+languageName = "English"
+weight = 1
+title = "Fernanda Palacios"
+
+[languages.de]
+languageName = "Deutsch"
+weight = 2
+title = "Dimension"
+description = '<!--[-->A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<!--]--><br />
+                <!--[-->for free under the <a href="https://html5up.net/license">Creative Commons</a> license.<!--]-->'
