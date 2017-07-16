@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 
-<img src="/img/logo.png" height="200", width = "350">
+<img src="/img/logo.png" height="200", width = "300">
 
 I created the organization *Project Include Ecuador*, an extension to Project Include at the University of Toronto.
 
@@ -15,7 +15,7 @@ Along with some computer science students from Ecuador, we hosted fun and intera
 
 
 This is our team
-<img src="/img/team.png" height="200", width = "350">
+<img src="/img/team.png" height="250", width = "300">
 
 
 

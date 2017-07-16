@@ -1,4 +1,4 @@
-baseurl = "http://example.org"
+baseurl = "https://fernandap.netlify.com/"
 title = "Dimension"
 theme = "dimension"
 languageCode = "en-us"
@@ -8,7 +8,7 @@ disableRSS = true
 
 [params]
   title = "Dimension"
-  description = '<!--[-->Computer Science Student at the University of Toronto. Lover of creativity and awe. From Quito, Ecuador. <!--]-->'
+  description = '<!--[-->Computer Science Student at the University of Toronto. Lover of awe and creativity. From Quito, Ecuador. <!--]-->'
   logo = "fa-diamond"
   copyright = "Untitled"
 
@@ -39,7 +39,7 @@ weight = 1
 title = "Fernanda Palacios"
 
 [languages.de]
-languageName = "Deutsch"
+languageName = "English"
 weight = 2
 title = "Dimension"
 description = '<!--[-->A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<!--]--><br />

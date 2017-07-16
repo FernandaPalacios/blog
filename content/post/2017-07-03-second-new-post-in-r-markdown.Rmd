@@ -12,7 +12,7 @@ I am blessed to have been at a vibrant city over the past month. I am exploring 
 
 This is a project I worked on. I used sentiment analysis to gain insight on the themes in three masterpieces of Sigmund Freud.
 
-<img src="/img/Freud.png" height="500", width = "800">
+<img src="/img/Freud.png" height="400"", width = "600">
 
 And a 'mundane' evening at CT.
 
