@@ -1,0 +1,46 @@
+---
+title: Exploratory Analysis 
+author: ~
+date: '2017-07-18'
+slug: exploratory-analysis
+categories: []
+tags: []
+weight: 0
+---
+# Fortune's 500 companies of 2015
+
+## Introduction and background
+
+Google, Facebook, Apple, etc. These are some of the top companies that we frequently hear about. 
+
+There are 497 other companies that Fortune describes as the world's 500 largest companies according to their well known ranking *Global 500*.
+
+I wondered, what makes them the top companies? And how is the ranking constructed?
+
+## Data source and details
+
+
+In order to explore the previous question in further detail, I looked at the ranking for the year 2015 found at [Global 500 2015](http://fortune.com/global500/2015/)
+
+The listing comprehends the following factors:
+
+```{r dataset}
+
+
+```
+
+## Initial exploratory analysis 
+<-- Visualization -->
+
+
+## Hypothesis
+
+
+
+## Experiment / Analysis
+<-- Train Model -->
+
+
+## Results
+
+
