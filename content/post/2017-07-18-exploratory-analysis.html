@@ -26,7 +26,7 @@ weight: 0
 ## [5] &quot;profitchange&quot;  &quot;profits&quot;       &quot;revchange&quot;</code></pre>
 <p>where,</p>
 <ul>
-<li>assets : assets in millions (USD)</li>
+<li>assets : a company’s assets in millions (USD)</li>
 <li>profits: profits in millions (USD)</li>
 <li>profit change: profit change (%)</li>
 <li>revchange: revenue change (%)</li>
@@ -44,13 +44,31 @@ library(ggplot2)</code></pre>
 # Few companies have + 50000 employees
 ggplot(fortune2015.df, aes(x = num_employees, y = ranking)) + 
   geom_point(colour = &quot;green&quot;, alpha = 0.5) </code></pre>
-<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/visualization-1.png" width="672" /></p>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/employees-1.png" width="672" /></p>
 <pre class="r"><code># Analyze outliers: few, large #employees
 
 ggplot(fortune2015.df, aes(x = num_employees, y = ranking)) + 
   geom_point(colour = &quot;green&quot;, alpha = 0.5) + ylim(c(0,20))</code></pre>
 <pre><code>## Warning: Removed 510 rows containing missing values (geom_point).</code></pre>
-<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/visualization-2.png" width="672" /></p>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/employees-2.png" width="672" /></p>
+<pre class="r"><code># Few companies have + 50000 employees
+ggplot(fortune2015.df, aes(x = assets, y = ranking)) + geom_point(colour = &quot;green&quot;, alpha = 0.5) + xlim(c(0,50000))</code></pre>
+<pre><code>## Warning: Removed 369 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/assets-1.png" width="672" /></p>
+<pre class="r"><code># All over the place!</code></pre>
+<pre class="r"><code>ggplot(fortune2015.df, aes(x = profits, y = ranking)) + geom_point(colour = &quot;green&quot;, alpha = 0.5)  + xlim(c(-10000,40000))</code></pre>
+<pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/profits-1.png" width="672" /></p>
+<pre class="r"><code># Lower the ranking, higher the profits</code></pre>
+<pre class="r"><code># conglomeration near y axis
+ggplot(fortune2015.df, aes(x = profitchange, y = ranking)) + geom_point(colour = &quot;green&quot;, alpha = 0.5) + xlim(c(-500,500))</code></pre>
+<pre><code>## Warning: Removed 82 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/profit_change-1.png" width="672" /></p>
+<pre class="r"><code># color by positive, negative</code></pre>
+<pre class="r"><code>ggplot(fortune2015.df, aes(x = revchange, y = ranking)) + geom_point(colour = &quot;green&quot;, alpha = 0.5) + xlim(c(-50,50))</code></pre>
+<pre><code>## Warning: Removed 66 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/revenue_change-1.png" width="672" /></p>
+<pre class="r"><code># All over</code></pre>
 </div>
 <div id="hypothesis" class="section level2">
 <h2>Hypothesis</h2>
