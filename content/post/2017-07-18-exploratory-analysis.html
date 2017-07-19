@@ -22,17 +22,41 @@ weight: 0
 <h2>Data source and details</h2>
 <p>In order to explore the previous question in further detail, I looked at the ranking for the year 2015 found at <a href="http://fortune.com/global500/2015/">Global 500 2015</a></p>
 <p>The listing comprehends the following factors:</p>
+<pre><code>## [1] &quot;company&quot;       &quot;ranking&quot;       &quot;num_employees&quot; &quot;assets&quot;       
+## [5] &quot;profitchange&quot;  &quot;profits&quot;       &quot;revchange&quot;</code></pre>
+<p>where,</p>
+<ul>
+<li>assets : assets in millions (USD)</li>
+<li>profits: profits in millions (USD)</li>
+<li>profit change: profit change (%)</li>
+<li>revchange: revenue change (%)</li>
+</ul>
+<p>For this analysis, I have used the following libraries:</p>
+<pre class="r"><code>library(rvest)
+library(dplyr)
+library(stringr)
+library(ggplot2)</code></pre>
 </div>
 <div id="initial-exploratory-analysis" class="section level2">
 <h2>Initial exploratory analysis</h2>
 <p>&lt;– Visualization –&gt;</p>
+<pre class="r"><code># Employees --------------------------------------------------------------
+# Few companies have + 50000 employees
+ggplot(fortune2015.df, aes(x = num_employees, y = ranking)) + 
+  geom_point(colour = &quot;green&quot;, alpha = 0.5) </code></pre>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/visualization-1.png" width="672" /></p>
+<pre class="r"><code># Analyze outliers: few, large #employees
+
+ggplot(fortune2015.df, aes(x = num_employees, y = ranking)) + 
+  geom_point(colour = &quot;green&quot;, alpha = 0.5) + ylim(c(0,20))</code></pre>
+<pre><code>## Warning: Removed 510 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2017-07-18-exploratory-analysis_files/figure-html/visualization-2.png" width="672" /></p>
 </div>
 <div id="hypothesis" class="section level2">
 <h2>Hypothesis</h2>
 </div>
 <div id="experiment-analysis" class="section level2">
 <h2>Experiment / Analysis</h2>
-<p>&lt;– Train Model –&gt;</p>
 </div>
 <div id="results" class="section level2">
 <h2>Results</h2>

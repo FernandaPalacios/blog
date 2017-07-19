@@ -7,6 +7,181 @@ categories: []
 tags: []
 weight: 0
 ---
+
+```{r DataMining, include = FALSE}
+# Are large companies the top companies?
+# 
+# * What is top 
+# 
+# - Annual average employees
+# - Aggregate employees vs Rank, assuming similar context (past five years)
+# Train model: rank -> employees 
+
+
+# Highlights miau --------------------------------------------------------------
+# 
+# dont have Toshiba's profit
+# got NA's profit change and revchange
+
+
+# to list data frames in environment
+ls()[sapply(ls(), function(x) class(get(x))) == 'data.frame']
+
+library(rvest)
+library(dplyr)
+library(stringr)
+library(ggplot2)
+
+
+# FACTORS: Rev Change, Profits, Profit Change, Assets, Employees
+# extracting each factor from its own site, ranking from employees'site
+
+
+# Employees & Ranking 2015 --------------------------------------------------------------------
+
+# Companies
+employees2015.html=  read_html("/Users/fernandapalacios/Documents/ixperience/Week 3/blog/content/post/forbes500/Data/employees2015.html")
+companies2015.span = employees2015.html %>% html_nodes("span.company-name")
+companies2015 = companies2015.span %>% html_text()
+
+# Employees
+employees2015 = employees2015.html %>% 
+                html_nodes("div.company-list-sort-type-container > div > div") %>%
+                html_text()
+
+# Ranking
+rankings2015 = employees2015.html %>% 
+  html_nodes("span.ranking") %>%
+  html_text()%>% 
+  as.numeric()
+
+# Clean and convert
+employees2015.numeric = str_replace_all(employees2015, "\n", "") %>%
+                        str_replace_all("\t", "") %>%
+                        str_replace_all(",", "")  %>% 
+                        as.numeric()
+
+# Build data frame
+emp_ran.df = data.frame(ranking = rankings2015, company = companies2015, num_employees = employees2015.numeric)
+
+# Split num_employees by tens of thousands
+
+# emp_ran.df$group_by_employees = emp_ran.df$num_employees%/%10000
+
+
+# Profits 2015 ------------------------------------------------------------
+# Companies
+profits2015 =  read_html("/Users/fernandapalacios/Documents/ixperience/Week 3/blog/content/post/forbes500/Data/profits2015.html")
+companies2015profit.span = profits2015 %>% html_nodes("span.company-name")
+companies2015profit = companies2015profit.span %>% html_text()
+
+
+# Profits (Millions)
+profits2015.text = profits2015 %>% 
+  html_nodes(".sort-value") %>%
+  html_text()
+
+# Clean and convert
+
+profits2015.numeric = str_replace_all(profits2015.text, "\n", "") %>%
+  str_replace_all("\t", "") %>%
+  str_replace_all(",", "")  %>% 
+  as.numeric()
+
+
+# Build data frame
+profits.df = data.frame(company = companies2015profit, profits = profits2015.numeric)
+
+
+
+# Merge dataframes --------------------------------------------------------
+# Missing:  Rev Change,  Profit Change, Assets
+
+# Rev Change 2015  --------------------------------------------------------
+# Companies
+revchange2015 =  read_html("/Users/fernandapalacios/Documents/ixperience/Week 3/blog/content/post/forbes500/Data/revchange2015.html")
+companies2015revchange.span = revchange2015 %>% html_nodes("span.company-name")
+companies2015revchange = companies2015revchange.span %>% html_text()
+
+
+# Rev Change (%)
+revchange2015.text = revchange2015 %>% 
+  html_nodes("div.company-list-sort-type-container > div > div") %>%
+  html_text()
+
+
+# Cleqn and convert
+revchange2015.numeric = str_replace_all(revchange2015.text, "\n", "") %>%
+  str_replace_all("\t", "") %>%
+  str_replace_all(",", "")  %>% 
+  str_replace_all("%", "")  %>% 
+  as.numeric()
+
+
+# Build data frame
+# miau: got NA's
+revchange.df = data.frame(company = companies2015revchange, revchange = revchange2015.numeric)
+
+
+# Profit Change -----------------------------------------------------------
+# Companies
+profitchange2015 =  read_html("/Users/fernandapalacios/Documents/ixperience/Week 3/blog/content/post/forbes500/Data/profitchange2015.html")
+companies2015profitchange.span = profitchange2015 %>% html_nodes("span.company-name")
+companies2015profitchange = companies2015profitchange.span %>% html_text()
+
+
+
+# Profit Change (%)
+profitchange2015.text = profitchange2015 %>% 
+  html_nodes(".sort-value") %>%
+  html_text()
+
+
+# Clean and convert
+profitchange2015.numeric = str_replace_all(profitchange2015.text, "\n", "") %>%
+  str_replace_all("\t", "") %>%
+  str_replace_all(",", "")  %>% 
+  str_replace_all("%", "")  %>% 
+  as.numeric()
+
+
+# Build data frame
+profitchange.df = data.frame(company = companies2015profitchange, profitchange = profitchange2015.numeric)
+
+
+
+# Assets ------------------------------------------------------------------
+# Companies
+assets2015 =  read_html("/Users/fernandapalacios/Documents/ixperience/Week 3/blog/content/post/forbes500/Data/assets2015.html")
+companies2015assets.span = assets2015 %>% html_nodes("span.company-name")
+companies2015assets = companies2015assets.span %>% html_text()
+
+
+
+# Assets
+assets2015.text = assets2015 %>% 
+  html_nodes("div.company-list-sort-type-container > div > div") %>%
+  html_text()
+
+# Clean and convert
+assets2015.numeric = str_replace_all(assets2015.text, "\n", "") %>%
+  str_replace_all("\t", "") %>%
+  str_replace_all(",", "")  %>% 
+  as.numeric()
+
+
+# Build data frame
+assets.df = data.frame(company = companies2015revchange, assets = assets2015.numeric)
+
+# Complete data frame ------------------------------------------------------
+
+fortune2015.df = merge(emp_ran.df, assets.df, by = "company") %>% 
+  merge(profitchange.df, by = "company") %>%
+  merge(profits.df, by = "company") %>% 
+  merge(revchange.df, by = "company")
+
+```
+
 # Fortune's 500 companies of 2015
 
 ## Introduction and background
@@ -17,6 +192,9 @@ There are 497 other companies that Fortune describes as the world's 500 largest 
 
 I wondered, what makes them the top companies? And how is the ranking constructed?
 
+
+
+
 ## Data source and details
 
 
@@ -24,13 +202,45 @@ In order to explore the previous question in further detail, I looked at the ran
 
 The listing comprehends the following factors:
 
-```{r dataset}
+```{r factors, echo=FALSE}
+names(fortune2015.df)
+``` 
 
 
+where,
+
+- assets : assets in millions (USD)
+- profits: profits in millions (USD)
+- profit change: profit change (%)
+- revchange:  revenue change (%)
+
+For this analysis, I have used the following libraries:
+
+```{r libraries}
+library(rvest)
+library(dplyr)
+library(stringr)
+library(ggplot2)
 ```
 
 ## Initial exploratory analysis 
 <-- Visualization -->
+
+
+```{r visualization}
+# Employees --------------------------------------------------------------
+# Few companies have + 50000 employees
+ggplot(fortune2015.df, aes(x = num_employees, y = ranking)) + 
+  geom_point(colour = "green", alpha = 0.5) 
+
+# Analyze outliers: few, large #employees
+
+ggplot(fortune2015.df, aes(x = num_employees, y = ranking)) + 
+  geom_point(colour = "green", alpha = 0.5) + ylim(c(0,20))
+```
+
+
+
 
 
 ## Hypothesis
@@ -38,7 +248,6 @@ The listing comprehends the following factors:
 
 
 ## Experiment / Analysis
-<-- Train Model -->
 
 
 ## Results
